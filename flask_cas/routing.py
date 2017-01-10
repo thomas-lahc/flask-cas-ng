@@ -122,13 +122,13 @@ def validate(ticket):
         current_app.logger.debug("valid")
         xml_from_dict = xml_from_dict["cas:serviceResponse"]["cas:authenticationSuccess"]
         username = xml_from_dict["cas:user"]
-        attributes = xml_from_dict.get("cas:attributes", {})
+        attributes = xml_from_dict["cas:attributes"]
 
         if "cas:memberOf" in attributes:
-            attributes["cas:memberOf"] = attributes["cas:memberOf"].lstrip('[').rstrip(']').split(',')
-            for group_number in range(0, len(attributes['cas:memberOf'])):
-                attributes['cas:memberOf'][group_number] = attributes['cas:memberOf'][group_number].lstrip(' ').rstrip(' ')
-
+            if isinstance(attributes["cas:memberOf"], basestring):
+                attributes["cas:memberOf"] = attributes["cas:memberOf"].lstrip('[').rstrip(']').split(',')
+                for group_number in range(0, len(attributes['cas:memberOf'])):
+                    attributes['cas:memberOf'][group_number] = attributes['cas:memberOf'][group_number].lstrip(' ').rstrip(' ')
         flask.session[cas_username_session_key] = username
         flask.session[cas_attributes_session_key] = attributes
     else:
