@@ -49,6 +49,11 @@ install Flask-CAS in a virtualenv.
 
 ## Instructions ##
 
+Before using Flask-CAS you will need to specify a `secret_key` for your
+app. This is used by the underlying Flask-Session dependency, so ensure
+it is secure (random and long). Output from /dev/urandom is a good 
+source for this value, or you can hash a non-predictable string.
+
 After Flask-CAS is installed you will be able to import the `flask_cas`
 packages. There is only one thing you care about inside the package
 which is the `CAS` class.
@@ -63,6 +68,7 @@ There are two ways to use the `CAS` class.
 
 ```python
 app = Flask(__name__)
+app.secret_key = 'something long and unique and random'
 CAS(app)
 ```
 
@@ -71,6 +77,7 @@ CAS(app)
 ```python
 cas = CAS()
 app = Flask(__name__)
+app.secret_key = 'something long and unique and random'
 cas.init_app(app)
 ```
 
@@ -116,6 +123,7 @@ def foo():
 
 |Key             | Description                              | Example              |
 |----------------|------------------------------------------|----------------------|
+|secret_key      | Unique secret key for Flask-Session      | 'something random'   |
 |CAS_SERVER      | URL of CAS                               | 'http://sso.pdx.edu' |  
 |CAS_AFTER_LOGIN | Endpoint to go to after successful login | 'root'               |
 
@@ -141,6 +149,7 @@ from flask_cas import login_required
 
 app = Flask(__name__)
 cas = CAS(app, '/cas')
+app.secret_key = 'something long and unique and random'
 app.config['CAS_SERVER'] = 'https://sso.pdx.edu' 
 app.config['CAS_AFTER_LOGIN'] = 'route_root'
 
