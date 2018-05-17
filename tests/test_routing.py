@@ -7,8 +7,8 @@ try:
 except ImportError:
     import unittest.mock as mock
 
-from flask.ext.cas import routing
-from flask.ext.cas import CAS
+from flask_cas import routing
+from flask_cas import CAS
 
 
 class test_routing(unittest.TestCase):

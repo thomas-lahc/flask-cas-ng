@@ -49,12 +49,12 @@ install Flask-CAS in a virtualenv.
 
 ## Instructions ##
 
-After Flask-CAS is installed you will be able to import the `flask.ext.cas`
+After Flask-CAS is installed you will be able to import the `flask_cas`
 packages. There is only one thing you care about inside the package
 which is the `CAS` class.
 
 ```python
-from flask.ext.cas import CAS
+from flask_cas import CAS
 ```
 
 There are two ways to use the `CAS` class.
@@ -94,15 +94,15 @@ For convenience you can use the `cas.login` and `cas.logout`
 functions to redirect users to the login and logout pages. 
 
 ```python
-from flask.ext.cas import login
-from flask.ext.cas import logout
+from flask_cas import login
+from flask_cas import logout
 ```
 
 If you would like to require that a user is logged in before continuing
 you may use the `cas.login_required` method.
 
 ```python
-from flask.ext.cas import login_required
+from flask_cas import login_required
 
 app.route('/foo')
 @login_required
@@ -136,8 +136,8 @@ def foo():
 ```python
 import flask
 from flask import Flask
-from flask.ext.cas import CAS
-from flask.ext.cas import login_required
+from flask_cas import CAS
+from flask_cas import login_required
 
 app = Flask(__name__)
 cas = CAS(app, '/cas')
