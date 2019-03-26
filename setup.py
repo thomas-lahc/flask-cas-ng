@@ -67,7 +67,7 @@ if __name__ == "__main__":
             Reference documentation
             =======================
 
-            See https://github.com/cameronbwhite/Flask-CAS"""),
+            See https://github.com/MasterRoshan/flask-cas-ng"""),
         packages=[
             "flask_cas",
         ],
