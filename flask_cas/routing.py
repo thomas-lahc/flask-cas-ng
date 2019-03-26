@@ -35,7 +35,7 @@ def login():
     redirect_url = create_cas_login_url(
         current_app.config['CAS_SERVER'],
         current_app.config['CAS_LOGIN_ROUTE'],
-        flask.url_for('.login', _external=True))
+        flask.url_for('.login', origin=flask.session.get('CAS_AFTER_LOGIN_SESSION_URL'), _external=True))
 
     if 'ticket' in flask.request.args:
         flask.session[cas_token_session_key] = flask.request.args['ticket']
@@ -45,6 +45,8 @@ def login():
         if validate(flask.session[cas_token_session_key]):
             if 'CAS_AFTER_LOGIN_SESSION_URL' in flask.session:
                 redirect_url = flask.session.pop('CAS_AFTER_LOGIN_SESSION_URL')
+            elif flask.request.args.get('origin'):
+                redirect_url = flask.request.args['origin']
             else:
                 redirect_url = flask.url_for(
                     current_app.config['CAS_AFTER_LOGIN'])
@@ -71,7 +73,7 @@ def logout():
     if cas_attributes_session_key in flask.session:
         del flask.session[cas_attributes_session_key]
 
-    if(current_app.config['CAS_AFTER_LOGOUT'] != None):
+    if(current_app.config['CAS_AFTER_LOGOUT'] is not None):
         redirect_url = create_cas_logout_url(
             current_app.config['CAS_SERVER'],
             current_app.config['CAS_LOGOUT_ROUTE'],
@@ -102,7 +104,7 @@ def validate(ticket):
     cas_validate_url = create_cas_validate_url(
         current_app.config['CAS_SERVER'],
         current_app.config['CAS_VALIDATE_ROUTE'],
-        flask.url_for('.login', _external=True),
+        flask.url_for('.login', origin=flask.session.get('CAS_AFTER_LOGIN_SESSION_URL'), _external=True),
         ticket)
 
     current_app.logger.debug("Making GET request to {0}".format(
