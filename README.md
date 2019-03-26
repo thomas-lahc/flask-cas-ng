@@ -44,7 +44,7 @@ pip install flask-cas-ng
 If you want to do it the hard way you can clone the repository and
 install flask-cas-ng in a virtualenv. 
 
-1. Clone it `git clone git@github.com:MasterRoshan/Flask-CAS.git`
+1. Clone it `git clone git@github.com:MasterRoshan/flask-cas-ng.git`
 2. Enter it `cd flask-cas-ng`
 3. Create a virtualenv and enter it (Optional) `virtualenv venv && source venv/bin/activate`
 4. Install it `python setup.py install`
