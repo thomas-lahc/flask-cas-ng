@@ -7,17 +7,17 @@ import textwrap
 
 if __name__ == "__main__":
     setuptools.setup(
-        name="Flask-CAS",
-        version="1.0.1",
+        name="flask-cas-ng",
+        version="1.1.0",
         description="Flask extension for CAS",
         author="Cameron Brandon White",
         author_email="cameronbwhite90@gmail.com",
-        url="https://github.com/cameronbwhite/Flask-CAS",
+        url="https://github.com/MasterRoshan/flask-cas-ng",
         long_description=textwrap.dedent("""\
-            Flask-CAS
+            flask-cas-ng
             =========
-
-            Flask-CAS is a Flask extension which makes it easy to
+            flask-cas-ng is a maintenance fork of the original Flask-CAS
+            flask-cas-ng is a Flask extension which makes it easy to
             authenticate with a CAS.
 
             CAS

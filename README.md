@@ -1,11 +1,13 @@
-Flask-CAS
+flask-cas-ng
 =========
 
 [![Join the chat at https://gitter.im/cameronbwhite/Flask-CAS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cameronbwhite/Flask-CAS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build Status](https://travis-ci.org/cameronbwhite/Flask-CAS.png?branch=master)](https://travis-ci.org/cameronbwhite/Flask-CAS)
+[![Build Status](https://travis-ci.org/MasterRoshan/flask-cas-ng.png?branch=master)](https://travis-ci.org/MasterRoshan/flask-cas-ng)
 
-Flask-CAS is a Flask extension which makes it easy to
+flas-cas-ng is a maintenance fork of https://github.com/cameronbwhite/Flask-CAS
+
+flask-cas-ng is a Flask extension which makes it easy to
 authenticate with a CAS Server (v2.0+).
 
 ## What is CAS? ##
@@ -31,30 +33,30 @@ http://flask-cas-extension-demo.cameronbwhite.com/
 
 ### PyPI ###
 
-Flask-CAS is available on PyPI! You can install it with pip.
+flask-cas-ng is available on PyPI! You can install it with pip.
 
 ```sh
-pip install Flask-CAS
+pip install flask-cas-ng
 ```
 
 ### Manual ###
 
 If you want to do it the hard way you can clone the repository and
-install Flask-CAS in a virtualenv. 
+install flask-cas-ng in a virtualenv. 
 
-1. Clone it `git clone git@github.com:cameronbwhite/Flask-CAS.git`
-2. Enter it `cd Flask-CAS`
+1. Clone it `git clone git@github.com:MasterRoshan/Flask-CAS.git`
+2. Enter it `cd flask-cas-ng`
 3. Create a virtualenv and enter it (Optional) `virtualenv venv && source venv/bin/activate`
 4. Install it `python setup.py install`
 
 ## Instructions ##
 
-Before using Flask-CAS you will need to specify a `secret_key` for your
+Before using flask-cas-ng you will need to specify a `secret_key` for your
 app. This is used by the underlying Flask-Session dependency, so ensure
 it is secure (random and long). Output from /dev/urandom is a good 
 source for this value, or you can hash a non-predictable string.
 
-After Flask-CAS is installed you will be able to import the `flask_cas`
+After flask-cas-ng is installed you will be able to import the `flask_cas`
 packages. There is only one thing you care about inside the package
 which is the `CAS` class.
 

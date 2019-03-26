@@ -21,7 +21,7 @@ also email me.
 * __References__: When you are addressing a issue you should reference
   that issue in your commits or pull requests. For example, if you just
   addressed issue #11 the first line of your commit message should be
-  prefixed with `(gh-11)`. Check out this commit https://github.com/cameronbwhite/Flask-CAS/commit/cfa2cde631e6f4053acc54da4ea21c14c2dde35f 
+  prefixed with `(gh-11)`. Check out this commit https://github.com/MasterRoshan/flask-cas-ng/commit/cfa2cde631e6f4053acc54da4ea21c14c2dde35f 
 
 ## Testing
 
@@ -29,7 +29,7 @@ All code summited needs to pass the current test suite.
 
 ### Testing Dependencies
 
-Installation of Flask-CAS does not install the testing dependencies.
+Installation of flask-cas-ng does not install the testing dependencies.
 You will need to install `Nose` and `Mock`. The dependencies can be
 installed with pip.
 
