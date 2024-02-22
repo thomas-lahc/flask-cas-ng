@@ -5,7 +5,7 @@ flask-cas-ng
 
 [![Build Status](https://travis-ci.org/MasterRoshan/flask-cas-ng.png?branch=master)](https://travis-ci.org/MasterRoshan/flask-cas-ng)
 
-flas-cas-ng is a maintenance fork of https://github.com/cameronbwhite/Flask-CAS
+flas-cas-ng is a maintenance fork of https://github.com/MasterRoshan/flask-cas-ng, which is a maintenance fork of https://github.com/cameronbwhite/Flask-CAS
 
 flask-cas-ng is a Flask extension which makes it easy to
 authenticate with a CAS Server (v2.0+).
@@ -20,34 +20,16 @@ to authenticate users without gaining access to a user's security
 credentials, such as a password. The name CAS also refers to a 
 software package that implements this protocol. 
 
-http://jasig.github.io/cas
-
-## Demo ##
-
-Want to see it in action? Here is a live demo that lets you 
-authenticate against your favorite CAS Server!
-
-http://flask-cas-extension-demo.cameronbwhite.com/
 
 ## Installation ##
-
-### PyPI ###
-
-flask-cas-ng is available on PyPI! You can install it with pip.
-
-```sh
-pip install flask-cas-ng
-```
-
-### Manual ###
 
 If you want to do it the hard way you can clone the repository and
 install flask-cas-ng in a virtualenv. 
 
-1. Clone it `git clone git@github.com:MasterRoshan/flask-cas-ng.git`
+1. Clone it `https://github.com/thomas-lahc/flask-cas-ng.git`
 2. Enter it `cd flask-cas-ng`
 3. Create a virtualenv and enter it (Optional) `virtualenv venv && source venv/bin/activate`
-4. Install it `python setup.py install`
+4. Install it `pip install .`
 
 ## Instructions ##
 

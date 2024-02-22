@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask-cas-ng"
+version = "1.2.0"
+authors = [
+  { name="Cameron Brandon White", email="cameronbwhite90@gmail.com" },
+  {  name="MasterRoshan"  },
+]
+maintainers = [
+  {  name = "Thomas Gautrais", email = "thomas.gautrais@univ-st-etienne.fr"  }
+]
+description = "Flask extension for CAS"
+readme = "README.md"
+dependencies = [
+  "Flask",
+  "xmltodict",
+  "packaging",
+]
+
+requires-python = ">=3.8"
+classifiers = [
+  'Environment :: Web Environment',
+  'Intended Audience :: Developers',
+  'License :: OSI Approved :: BSD License',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python',
+  'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+  'Topic :: Software Development :: Libraries :: Python Modules'
+]
+
+[project.optional-dependencies]
+tests = [
+  "Nose",
+  "Mock",
+]
+
+[project.urls]
+Homepage = "https://github.com/thomas-lahc/flask-cas-ng/sampleproject"
+Issues = "https://github.com/thomas-lahc/flask-cas-ng/issues"

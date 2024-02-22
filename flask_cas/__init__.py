@@ -5,13 +5,26 @@ flask_cas.__init__
 import flask
 from flask import current_app
 
-# Find the stack on which we want to store the database connection.
-# Starting with Flask 0.9, the _app_ctx_stack is the correct one,
-# before that we need to use the _request_ctx_stack.
+from packaging import version
+_flask_version = None
 try:
-    from flask import _app_ctx_stack as stack
-except ImportError:
-    from flask import _request_ctx_stack as stack
+    import importlib
+    _flask_version = version.parse(importlib.metadata.version("flask"))
+except:
+    _flask_version = version.parse(flask.__version__)
+
+
+if _flask_version >= version.parse("2.2.0"):
+    from flask.globals import _cv_app
+else:
+    # Find the stack on which we want to store the database connection.
+    # Starting with Flask 0.9, the _app_ctx_stack is the correct one,
+    # before that we need to use the _request_ctx_stack.
+    try:
+        from flask import _app_ctx_stack as stack
+    except ImportError:
+        from flask import _request_ctx_stack as stack
+
 
 from . import routing
 
@@ -65,8 +78,11 @@ class CAS(object):
             app.teardown_request(self.teardown)
 
     def teardown(self, exception):
-        ctx = stack.top
-    
+        if _flask_version >= version.parse("2.2.0"):
+            ctx = _cv_app.get()
+        else:
+            ctx = stack.top
+
     @property
     def app(self):
         return self._app or current_app

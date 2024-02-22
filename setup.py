@@ -8,11 +8,11 @@ import textwrap
 if __name__ == "__main__":
     setuptools.setup(
         name="flask-cas-ng",
-        version="1.1.0",
+        version="1.2.0",
         description="Flask extension for CAS",
         author="Cameron Brandon White",
         author_email="cameronbwhite90@gmail.com",
-        url="https://github.com/MasterRoshan/flask-cas-ng",
+        url="https://github.com/thomas-lahc/flask-cas-ng",
         long_description=textwrap.dedent("""\
             flask-cas-ng
             =========
@@ -67,13 +67,14 @@ if __name__ == "__main__":
             Reference documentation
             =======================
 
-            See https://github.com/MasterRoshan/flask-cas-ng"""),
+            See https://github.com/thomas-lahc/flask-cas-ng"""),
         packages=[
             "flask_cas",
         ],
         install_requires = [
             "Flask",
             "xmltodict",
+            "packaging",
         ],
         test_requires = [
             "Nose",
